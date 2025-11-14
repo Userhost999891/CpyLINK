@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Roblox Artist Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">Roblox Artist Gallery</div>
+    <div id="dynamic-island" class="dynamic-island" aria-haspopup="true" aria-expanded="false" tabindex="0">
+      <div class="island-inner">
+        <div class="island-icon">⚙️</div>
+        <div class="island-label">Ustawienia</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="gallery" class="gallery" aria-live="polite"></section>
+  </main>
+
+  <!-- Floating Add Button -->
+  <button id="addBtn" class="fab" aria-label="Utwórz LPOST">
+    <span class="fab-icon">+</span>
+    <span class="fab-text">Utwórz LPOST</span>
+  </button>
+
+  <!-- Add Post Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <h2>Utwórz LPOST</h2>
+      <label class="field">
+        <div class="field-label">Nazwa</div>
+        <input id="postTitle" type="text" placeholder="Nazwa posta" />
+      </label>
+      <label class="field">
+        <div class="field-label">Opis</div>
+        <textarea id="postDesc" rows="3" placeholder="Krótki opis..."></textarea>
+      </label>
+      <label class="field">
+        <div class="field-label">Zdjęcie</div>
+        <input id="postImage" type="file" accept="image/*" />
+      </label>
+      <div class="modal-actions">
+        <button id="savePost" class="btn primary">Dodaj</button>
+        <button id="closeModal" class="btn">Anuluj</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Post Viewer -->
+  <div id="viewer" class="viewer" aria-hidden="true">
+    <div class="viewer-content">
+      <button id="closeViewer" class="viewer-close" aria-label="Zamknij">✕</button>
+      <img id="viewerImage" alt="">
+      <div class="viewer-meta">
+        <h3 id="viewerTitle"></h3>
+        <p id="viewerDesc"></p>
+        <div class="viewer-actions">
+          <button id="copyLink" class="btn">Kopiuj link obrazu</button>
+          <button id="downloadImg" class="btn">Pobierz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Panel (dynamic island content) -->
+  <div id="settingsPanel" class="settings-panel" aria-hidden="true">
+    <div class="settings-card">
+      <h3>Ustawienia</h3>
+      <div class="setting">
+        <label>Motyw</label>
+        <select id="themeSelect">
+          <option value="system">Systemowy</option>
+          <option value="light">Jasny</option>
+          <option value="dark">Ciemny</option>
+        </select>
+      </div>
+      <div class="setting">
+        <label>Animacje</label>
+        <input id="toggleAnim" type="checkbox" checked />
+      </div>
+      <div class="setting">
+        <label>Resetuj bazę (localStorage)</label>
+        <button id="resetBtn" class="btn destructive">Resetuj</button>
+      </div>
+      <div class="setting small">
+        <em>Strona działa w całości w przeglądarce. Zdjęcia są przechowywane jako dataURL w localStorage.</em>
+      </div>
+      <div class="settings-close">
+        <button id="closeSettings" class="btn">Zamknij</button>
+      </div>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
